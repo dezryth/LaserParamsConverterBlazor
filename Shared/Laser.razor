@@ -1,5 +1,5 @@
 ﻿Laser
-<DxComboBox Data="@Lasers" @bind-Value="@Value">
+<DxComboBox Data="@Lasers" @bind-Value="@SharedState.Laser">
 </DxComboBox>
 @Value
 
@@ -9,5 +9,5 @@
 
     public LaserType Value { get; set; }
 
-    public IEnumerable<string> Lasers = (IEnumerable<String>)Enum.GetValues(typeof(LaserType));
+    public IEnumerable<string> Lasers = Enum.GetNames(typeof(LaserType));
 }
