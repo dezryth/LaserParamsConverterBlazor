@@ -1,0 +1,83 @@
+﻿@page "/convert"
+
+<PageTitle>Convert</PageTitle>
+
+<div class="container">
+    <div class="row mb-2 align-items-baseline">
+        <div class="col-4">
+            <Format></Format>
+        </div>
+
+        <div class="col-4 offset-4 text-end">
+            <a href="github.com/shark92651/LaserParamsConverter">LaserParamsConverter Github Site</a>
+        </div>
+    </div>
+
+    <div class="row mb-2 align-items-end">
+        <div class="col-2">
+            <Laser></Laser>
+        </div>
+
+        <div class="col-2">
+            <MaxPower></MaxPower>        
+        </div>
+
+        <div class="col-2 offset-6 text-end">
+            <DxButton Text="Advanced"></DxButton>
+        </div>
+    </div>
+
+    <div class="row mb-3 justify-content-between">
+        <div class="col-sm">
+            <InputFile></InputFile>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6"><strong>Input</strong></div>
+        <div class="col-6"><strong>Output</strong></div>
+    </div>
+    
+    <div class="row mb-2 align-items-end">
+        <div class="col-sm">
+            <Lens></Lens>
+        </div>
+        <div class="col-sm">
+            <Wattage></Wattage>
+        </div>
+        <div class="col-sm text-center">            
+            <DxButton Text="Convert One"></DxButton>
+        </div>
+        <div class="col-sm">
+            <Lens></Lens>
+        </div>
+        <div class="col-sm">
+            <Wattage></Wattage>
+        </div>
+        <div class="col-sm text-center">
+            <DxButton Text="Convert All" Enabled="false"></DxButton>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-6">
+            <PowerGrid></PowerGrid>
+        </div>
+        <div class="col-6">
+            <PowerGrid></PowerGrid>
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <div class="col-2 text-end">
+            <DxButton Text="Save Library File"></DxButton>
+        </div>
+    </div>
+
+
+</div>
+
+
+@code {
+
+}

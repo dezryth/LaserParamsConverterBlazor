@@ -1,0 +1,14 @@
+﻿Format
+<DxComboBox Data="@Formats" @bind-Value="@Value"></DxComboBox>
+
+@code {
+    IEnumerable<string> Formats = new List<string>()
+    {
+        "EZCAD2",
+        "EZCAD3",
+        "LightBurn"
+    };
+
+    string? Value { get; set; }
+
+}

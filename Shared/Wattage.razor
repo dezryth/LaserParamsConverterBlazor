@@ -1,0 +1,9 @@
+﻿Wattage
+<DxSpinEdit @bind-Value="@Value"
+            SizeMode="SizeMode.Medium"
+            MinValue="0"
+            MaxValue="100" />
+
+@code {
+    int Value { get; set; } = 30;
+}

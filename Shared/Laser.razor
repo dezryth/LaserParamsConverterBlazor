@@ -1,0 +1,13 @@
+﻿Laser
+<DxComboBox Data="@Lasers" @bind-Value="@Value"></DxComboBox>
+
+@code {
+    IEnumerable<string> Lasers = new List<string>()
+    {
+        "CO2 Gantry",
+        "Fiber Laser"        
+    };
+
+    string? Value { get; set; }
+
+}

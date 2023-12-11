@@ -1,0 +1,20 @@
+﻿<DxGrid Data="@Data">
+    <Columns>
+        <DxGridDataColumn FieldName="Name" />
+        <DxGridDataColumn FieldName="Power" />
+        <DxGridDataColumn FieldName="Speed" />
+    </Columns>
+</DxGrid>
+
+
+@code {
+    List<PowerGridItem> Data = new List<PowerGridItem>();
+
+    public class PowerGridItem
+    {
+        string? FullName { get; set; }
+        string? Power { get; set; }
+        string? Speed { get; set; }
+    }
+
+}
