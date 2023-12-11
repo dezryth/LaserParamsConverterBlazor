@@ -1,0 +1,57 @@
+﻿@inject SharedStateService SharedState
+<div class="d-flex flex-fill pt-1 pb-2 w-100">
+    <div class="container">
+        <div class="row  mb-4">
+            <div class="col-sm">
+                <strong>@SharedState.Laser</strong>
+            </div>
+
+            <div class="col-sm">
+                <SpinEdit Label="Max Power" PropertyName="MaxPower"></SpinEdit>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-sm">
+                <strong>Input</strong>
+            </div>
+            <div class="col-sm">
+                <strong>Output</strong>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-sm">
+                <SpinEdit Label="Lens" PropertyName="InLens"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Wattage" PropertyName="InWattage"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Lens" PropertyName="OutLens"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Wattage" PropertyName="OutWattage"></SpinEdit>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-sm">
+                <SpinEdit Label="Power" PropertyName="InPower"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Speed" PropertyName="InSpeed"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Power" PropertyName="OutPower"></SpinEdit>
+            </div>
+            <div class="col-sm">
+                <SpinEdit Label="Speed" PropertyName="OutSpeed"></SpinEdit>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

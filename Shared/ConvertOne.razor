@@ -1,0 +1,67 @@
+﻿@using System.Globalization;
+<div id="dropdown-overview-target-container">
+    <DxButton Click="() => IsOpen = !IsOpen"
+              RenderStyle="@ButtonRenderStyle.Secondary">Convert One</DxButton>
+</div>
+
+<DxDropDown @bind-IsOpen="@IsOpen"
+            MinWidth="max(25vw, 450px)"
+            PositionMode="DropDownPositionMode.Bottom"
+            PositionTarget="#dropdown-overview-target-container"
+            RestrictionTarget="#Navigation-DropDown-Customization"
+            CloseMode="DropDownCloseMode.Close"
+            PreventCloseOnPositionTargetClick="true"
+            HeaderVisible="true"
+            HeaderText="Parameter Conversion"
+            FooterVisible="true">
+    <BodyContentTemplate>
+        <ConvertOneForm></ConvertOneForm>
+    </BodyContentTemplate>
+    <FooterContentTemplate>
+        <DxButton CssClass="popup-button my-1 ms-2" RenderStyle="ButtonRenderStyle.Primary" Text="Convert" Click="@Convert" />
+    </FooterContentTemplate>
+</DxDropDown>
+
+@code {
+    bool IsOpen { get; set; } = false;
+
+    [Inject]
+    private SharedStateService? SharedState { get; set; }
+
+    private void Convert()
+    {
+        int maxPower = SharedState.MaxPower;
+        int inLens;
+        int inWatts = SharedState.InWattage;
+        int inPower = SharedState.InPower;
+        int inSpeed = SharedState.InSpeed;
+        int outLens;
+        int outWatts = SharedState.OutWattage;
+
+        try
+        {
+            if (SharedState.Laser == LaserType.CO2)
+            {
+                inLens = 1;
+                outLens = 1;
+            }
+            else
+            {
+                inLens = SharedState.InLens;
+                outLens = SharedState.OutLens;
+            }
+
+            LaserParam param = new LaserParam(inSpeed, inPower);
+            param.Convert(SharedState.Laser, maxPower, inLens, inWatts, outLens, outWatts);
+
+            SharedState.OutPower = param.Power;
+            SharedState.OutSpeed = param.Speed;
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+
+    }
+}

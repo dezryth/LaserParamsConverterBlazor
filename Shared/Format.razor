@@ -1,14 +1,9 @@
 ﻿Format
-<DxComboBox Data="@Formats" @bind-Value="@Value"></DxComboBox>
+<DxComboBox Data="@Formats" @bind-Value="@SharedState.Format"></DxComboBox>
 
 @code {
-    IEnumerable<string> Formats = new List<string>()
-    {
-        "EZCAD2",
-        "EZCAD3",
-        "LightBurn"
-    };
+    [Inject]
+    private SharedStateService? SharedState { get; set; }
 
-    string? Value { get; set; }
-
+    public IEnumerable<string> Formats { get => Enum.GetNames(typeof(LibraryType)); set { } }
 }

@@ -19,7 +19,7 @@
         </div>
 
         <div class="col-2">
-            <MaxPower></MaxPower>        
+            <SpinEdit Label="Max Power" PropertyName="MaxPower"></SpinEdit>
         </div>
 
         <div class="col-2 offset-6 text-end">
@@ -40,19 +40,19 @@
     
     <div class="row mb-2 align-items-end">
         <div class="col-sm">
-            <Lens></Lens>
+            <SpinEdit Label="Lens" PropertyName="InLens"></SpinEdit>
         </div>
         <div class="col-sm">
-            <Wattage></Wattage>
+            <SpinEdit Label="Wattage" PropertyName="InWattage"></SpinEdit>
         </div>
         <div class="col-sm text-center">            
-            <DxButton Text="Convert One"></DxButton>
+            <ConvertOne></ConvertOne>
         </div>
         <div class="col-sm">
-            <Lens></Lens>
+            <SpinEdit Label="Lens" PropertyName="OutLens"></SpinEdit>
         </div>
         <div class="col-sm">
-            <Wattage></Wattage>
+            <SpinEdit Label="Wattage" PropertyName="OutWattage"></SpinEdit>
         </div>
         <div class="col-sm text-center">
             <DxButton Text="Convert All" Enabled="false"></DxButton>

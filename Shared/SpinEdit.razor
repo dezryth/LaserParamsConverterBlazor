@@ -1,0 +1,48 @@
+﻿@Label
+<DxSpinEdit @bind-Value="@PropertyValue"
+            BindValueMode="BindValueMode.OnInput"
+            SizeMode="SizeMode.Medium"
+            MinValue="0" />
+
+@code {
+    [Inject]
+    private SharedStateService? SharedState { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? PropertyName { get; set; }
+
+    private int PropertyValue
+    {
+        get
+        {
+            if (SharedState != null && PropertyName != null)
+            {
+                string? value = SharedState.GetType().GetProperty(PropertyName)?.GetValue(SharedState)?.ToString();
+                if (value != null)
+                {
+                    return Int32.Parse(value);
+                }
+                else
+                {
+                    throw new Exception("Property " + PropertyName + "'s value is null.");
+                }
+
+            }
+            else 
+            {
+                throw new Exception("SharedState Service not injected, or property name was invalid.");                
+            }
+        }
+        set
+        {
+            if (SharedState != null && PropertyName != null)
+            {
+                SharedState.GetType().GetProperty(PropertyName)?.SetValue(SharedState, value);
+                StateHasChanged();
+            }
+        }
+    }
+}

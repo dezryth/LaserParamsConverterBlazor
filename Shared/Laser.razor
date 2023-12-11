@@ -1,13 +1,13 @@
 ﻿Laser
-<DxComboBox Data="@Lasers" @bind-Value="@Value"></DxComboBox>
+<DxComboBox Data="@Lasers" @bind-Value="@Value">
+</DxComboBox>
+@Value
 
 @code {
-    IEnumerable<string> Lasers = new List<string>()
-    {
-        "CO2 Gantry",
-        "Fiber Laser"        
-    };
+    [Inject]
+    private SharedStateService? SharedState { get; set; }
 
-    string? Value { get; set; }
+    public LaserType Value { get; set; }
 
+    public IEnumerable<string> Lasers = (IEnumerable<String>)Enum.GetValues(typeof(LaserType));
 }
